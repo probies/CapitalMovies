@@ -28,3 +28,45 @@ a {
   border: 1px solid #acb5c0!important;
   border-radius: 0.25rem;
 }
+
+.card-img-overlay {
+  display: none ;
+}
+
+.image-details:hover .card-img-top {
+  opacity:50%!important ;
+}
+
+.image-details:hover .card-img-overlay {
+  transition: 0.5s ease;
+  display: block;
+  opacity:1!important ;
+}
+
+.overlay-item{
+  width: fit-content;
+}
+
+.navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+  color: #fff!important;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  color: #fff!important;
+  background-color: #777c83!important;
+}
+
+.nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: #adb5bd!important;
+  text-decoration: none;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+}
+
+@media (min-width: 576px) { 
+  #small-screen-nav {
+    display: none;
+    transition: 0.5s ease;
+ }
+}

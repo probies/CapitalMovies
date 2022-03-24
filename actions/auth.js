@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch';
 import cookie from 'js-cookie';
+import Router from 'next/router';
 
 const API = 'http://localhost:8000/api';
 
@@ -36,13 +37,14 @@ export const signin = user => {
 export const signout = next => {
     removeCookie('token');
     removeLocalStorage('user');
-    next();
 
     return fetch(`${API}/signout`, {
         method: 'GET'
     })
         .then(response => {
             console.log('signout success');
+            Router.push('/');
+            
         })
         .catch(err => console.log(err));
 };

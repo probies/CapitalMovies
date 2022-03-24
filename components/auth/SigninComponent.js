@@ -47,9 +47,9 @@ const SigninComponent = () => {
         setValues({ ...values, error: false, [name]: e.target.value });
     };
 
-    const showLoading = () => (loading ? <div className="alert alert-info">Loading...</div> : '');
-    const showError = () => (error ? <div className="alert alert-danger">{error}</div> : '');
-    const showMessage = () => (message ? <div className="alert alert-info">{message}</div> : '');
+    const showLoading = () => (loading ? <div className="alert alert-info" style={{'marginLeft':'5%','marginRight':'5%'}}>Loading...</div> : '');
+    const showError = () => (error ? <div className="alert alert-danger p-3" style={{'marginLeft':'5%','marginRight':'5%'}}>{error}</div> : '');
+    const showMessage = () => (message ? <div className="alert alert-info" style={{'marginLeft':'5%','marginRight':'5%'}}>{message}</div> : '');
 
     const signinForm = () => {
         return (
@@ -79,7 +79,7 @@ const SigninComponent = () => {
                     <button className="btn btn-primary" style={{'width':'100%'}}>Signin</button>
                     <div className='pt-3'>
                         <t>Don't have an account?
-                        <Link href={'/signup'}>  Signup</Link>
+                        <Link href={'/signup'} style={{'color':'#084298!important'}}>  Signup</Link>
                         </t>
                     </div>
                 </div>
@@ -90,10 +90,12 @@ const SigninComponent = () => {
 
     return (
         <>
+        <div >
             {showError()}
             {showLoading()}
             {showMessage()}
             {showForm && signinForm()}
+        </div>
         </>
     );
 };

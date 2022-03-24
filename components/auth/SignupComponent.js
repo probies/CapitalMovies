@@ -48,9 +48,9 @@ const SignupComponent = () => {
         setValues({ ...values, error: false, [name]: e.target.value });
     };
 
-    const showLoading = () => (loading ? <div className="alert alert-info">Loading...</div> : '');
-    const showError = () => (error ? <div className="alert alert-danger">{error}</div> : '');
-    const showMessage = () => (message ? <div className="alert alert-info">{message}</div> : '');
+    const showLoading = () => (loading ? <div className="alert alert-info" style={{'marginLeft':'5%','marginRight':'5%'}}>Loading...</div> : '');
+    const showError = () => (error ? <div className="alert alert-danger p-3" style={{'marginLeft':'5%','marginRight':'5%'}}>{error}</div> : '');
+    const showMessage = () => (message ? <div className="alert alert-info" style={{'marginLeft':'5%','marginRight':'5%'}}>{message}</div> : '');
 
     const signupForm = () => {
         return (
@@ -80,7 +80,7 @@ const SignupComponent = () => {
                     <button className="btn btn-primary" style={{'width':'100%'}}>Signup</button>
                     <div className='pt-3'>
                         <t>Already have an account?
-                        <Link href={'/signup'}>Login</Link>
+                        <Link href={'/signup'} style={{'color':'White!important'}}>Login</Link>
                         </t>
                     </div>
                 </div>
@@ -90,12 +90,12 @@ const SignupComponent = () => {
     };
 
     return (
-        <React.Fragment>
+        <div>
             {showError()}
             {showLoading()}
             {showMessage()}
             {showForm && signupForm()}
-        </React.Fragment>
+        </div>
     );
 };
 

@@ -18,7 +18,7 @@ export default function Login() {
       <main>
         <Header />
         <div className="container-fluid p-4" style={{'color':'white','marginTop':'60px'}}>
-        <div className="col-lg-4 offset-lg-4" style={{'backgroundColor':'gray'}}>
+        <div className="col-md-4 col-sm-6 offset-sm-3 offset-md-4 offset-lg-4" style={{'backgroundColor':'gray'}}>
                 <h2 className="text-center pt-4">Signin</h2>
                 <div className="row">
                         <SigninComponent />
