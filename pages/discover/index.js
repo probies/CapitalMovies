@@ -15,7 +15,6 @@ export default function Home({results}) {
         if(isAuth()){
           favourites(token).then(favourite => {
             favourite.map( item => {
-              console.log(item.id)
               setData( (Data) =>{
                 Data.map( (i,index) => {
                   if(item.id === i.id){
