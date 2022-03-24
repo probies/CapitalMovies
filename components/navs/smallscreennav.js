@@ -14,19 +14,19 @@ export default function Smallscreennav() {
         <ul className="nav nav-pills px-4 justify-content-around">
 
                 <li className="nav-item">
-                    <Link href="/discover">
+                    <Link href="/discover" passHref>
                         <NavLink active={!(router.pathname.match('favourites') || router.pathname.match('latest'))} >Popular</NavLink>
                     </Link>
                 </li>
 
                 <li className="nav-item">
-                    <Link href="/discover/latest">
+                    <Link href="/discover/latest" passHref>
                         <NavLink active={router.pathname.includes('latest')}>Latest</NavLink>
                     </Link>
                 </li>
 
                 {isAuth() && <li className="nav-item ">
-                    <Link href="/discover/favourites">
+                    <Link href="/discover/favourites" passHref>
                         <NavLink active={router.pathname.includes('favourites')}>Favourites</NavLink>
                     </Link>
                 </li>}

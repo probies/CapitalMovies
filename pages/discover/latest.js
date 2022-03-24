@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import Header from '../../components/header'
 import MoviesCard from '../../components/movies'
 import { useState, useEffect } from 'react';
@@ -44,6 +45,12 @@ export default function Latest({results}) {
 
   return (
     <div>
+
+      <Head>
+        <title>Latest | Capital Movies</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main>
         <Header />
         <MoviesCard data={results}  update={handleclick}/>

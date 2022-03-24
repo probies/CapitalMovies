@@ -3,6 +3,7 @@ import MoviesCard from '../../components/movies'
 import { useState, useEffect } from 'react';
 import { addfavourites , favourites } from '../../actions/movies'
 import { isAuth,getCookie } from '../../actions/auth';
+import Head from 'next/head';
 
 export default function Latest() {
 
@@ -36,6 +37,11 @@ export default function Latest() {
 
   return (
     <div>
+      <Head>
+        <title>Favourites | Capital Movies</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main>
         <Header />
         <MoviesCard data={data}  update={handleclick}/>

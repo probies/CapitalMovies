@@ -21,19 +21,19 @@ export default function Navbar() {
       <ul className="navbar-nav flex-row d-none d-sm-flex">
 
         <li className="nav-item me-3 me-lg-4  px-3">
-            <Link href="/discover">
+            <Link href="/discover" passHref>
                 <NavLink active={!(router.pathname.match('favourites') || router.pathname.match('latest'))} >Popular</NavLink>
             </Link>
         </li>
 
         <li className="nav-item me-3 me-lg-4 px-3">
-            <Link href="/discover/latest">
+            <Link href="/discover/latest" passHref>
                 <NavLink active={router.pathname.includes('latest')}>Latest</NavLink>
             </Link>
         </li>
 
         {isAuth() && <li className="nav-item me-3 me-lg-4 px-3">
-            <Link href="/discover/favourites">
+            <Link href="/discover/favourites" passHref>
                 <NavLink active={router.pathname.includes('favourites')}>Favourites</NavLink>
             </Link>
         </li>}
@@ -44,7 +44,7 @@ export default function Navbar() {
         {isAuth() && <li className="nav-item me-3 me-lg-1" onDoubleClick={() => signout()}>
           <a className="nav-link d-sm-flex align-items-sm-center" id='account' href="#">
             <img
-              src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp"
+              src="/profilepic.webp"
               className="rounded-circle"
               height="30"
               alt="Black and White Portrait of a Man"

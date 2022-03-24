@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { movie, addfavourites , favourites } from '../../actions/movies'
 import MoviesCard from '../../components/movies';
 import { isAuth,getCookie } from '../../actions/auth';
+import Head from 'next/head';
 
 export default function Home({results}) {
 
@@ -44,6 +45,12 @@ export default function Home({results}) {
 
   return (
     <div>
+
+      <Head>
+        <title>Capital Movies</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main>
         <Header />
         <MoviesCard data={results}  update={handleclick}/>
