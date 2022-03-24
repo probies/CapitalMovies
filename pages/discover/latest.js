@@ -27,7 +27,7 @@ export default function Latest({results}) {
           })
         }
 
-    },[])
+    },[token])
 
 
   const handleclick = (item,index,token) => {

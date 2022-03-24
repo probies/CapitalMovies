@@ -78,9 +78,9 @@ const SigninComponent = () => {
                 <div className='text-center p-3 pb-4'>
                     <button className="btn btn-primary" style={{'width':'100%'}}>Signin</button>
                     <div className='pt-3'>
-                        <t>Don't have an account?
-                        <Link href={'/signup'} style={{'color':'#084298!important'}}>  Signup</Link>
-                        </t>
+                        <div>Don&apos;t have an account?
+                        <Link href={'/signup'}>Signup</Link>
+                        </div>
                     </div>
                 </div>
             </form>

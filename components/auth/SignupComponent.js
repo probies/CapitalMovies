@@ -79,9 +79,7 @@ const SignupComponent = () => {
                 <div className='text-center p-3 pb-4'>
                     <button className="btn btn-primary" style={{'width':'100%'}}>Signup</button>
                     <div className='pt-3'>
-                        <t>Already have an account?
-                        <Link href={'/signup'} style={{'color':'White!important'}}>Login</Link>
-                        </t>
+                        <div>Already have an account?<Link href={'/signup'}>Login</Link></div>
                     </div>
                 </div>
 

@@ -27,7 +27,7 @@ export default function Home({results}) {
           })
         }
 
-    },[])
+    },[token])
 
 
   const handleclick = (item,index,token) => {

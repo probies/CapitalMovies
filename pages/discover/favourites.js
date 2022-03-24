@@ -7,9 +7,8 @@ import { isAuth,getCookie } from '../../actions/auth';
 export default function Latest() {
 
   const [data,setData] = useState({})
-  const token = getCookie('token');
 
-  
+  const token = getCookie('token');
 
     useEffect(() => {
 
@@ -20,7 +19,7 @@ export default function Latest() {
           })
         }
 
-    },[])
+    },[token])
 
 
   const handleclick = (item,index,token) => {
