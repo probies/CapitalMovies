@@ -27,7 +27,7 @@ Landing page `/` is mapped to `/discover`
 ### Features
 
 1) hover on MovieCard to see more information
-3) Sihnup & Login to see favourites movies tab and add to favourites
+3) Signup & Login to see favourites movies tab and add to favourites
 2) Double tap on MovieCard or Click on heart icon to add movies to favourites
 
 
