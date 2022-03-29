@@ -2,14 +2,13 @@ import fetch from 'isomorphic-fetch';
 import cookie from 'js-cookie';
 import Router from 'next/router';
 
-const API = 'http://localhost:8000/api';
-
 export const signup = user => {
-    return fetch(`${API}/signup`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API}/signup`, {
         method: 'POST',
-        headers: {
+        headers: {      
             Accept: 'application/json',
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
         },
         body: JSON.stringify(user)
     })
@@ -20,7 +19,8 @@ export const signup = user => {
 };
 
 export const signin = user => {
-    return fetch(`${API}/signin`, {
+    //console.log(`${NEXT_PUBLIC_API}/signin`);
+    return fetch(`${process.env.NEXT_PUBLIC_API}/signin`, {
         method: 'POST',
         headers: {
             Accept: 'application/json',
@@ -38,7 +38,7 @@ export const signout = next => {
     removeCookie('token');
     removeLocalStorage('user');
 
-    return fetch(`${API}/signout`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API}/signout`, {
         method: 'GET'
     })
         .then(response => {

@@ -1,11 +1,13 @@
 import fetch from 'isomorphic-fetch';
 
 export const movie = () => {
-    return fetch(`http://localhost:8000/api/movies`, {
+    //console.log(`${NEXT_PUBLIC_API}/movie`);
+    return fetch(`${process.env.NEXT_PUBLIC_API}/movies`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
         })
             .then(response => {
@@ -15,11 +17,12 @@ export const movie = () => {
 };
 
 export const latest = () => {
-    return fetch(`http://localhost:8000/api/movies/latest`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API}/movies/latest`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
         })
             .then(response => {
@@ -29,11 +32,12 @@ export const latest = () => {
 };
 
 export const addfavourites = (item,token) => {
-    return fetch(`http://localhost:8000/api/movies/favourites`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API}/movies/favourites`, {
             method: 'POST',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
                 Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(item)
@@ -45,11 +49,12 @@ export const addfavourites = (item,token) => {
 };
 
 export const favourites = token => {
-    return fetch(`http://localhost:8000/api/movies/favourites`, {
+    return fetch(`${process.env.NEXT_PUBLIC_API}/movies/favourites`, {
             method: 'GET',
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
                 Authorization: `Bearer ${token}`
             },
         })
