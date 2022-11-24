@@ -1,13 +1,15 @@
 import Header from '../../components/header'
 import MoviesCard from '../../components/movies'
 import { useState, useEffect } from 'react';
-import { addfavourites , favourites } from '../../actions/movies'
+import { addfavourites, favourites, search } from '../../actions/movies'
 import { isAuth,getCookie } from '../../actions/auth';
 import Head from 'next/head';
+import { debounce } from '../../utility/debounce';
 
 export default function Latest() {
 
   const [data,setData] = useState({})
+  const [result,setResult] = useState({})
 
   const token = getCookie('token');
 
@@ -17,6 +19,7 @@ export default function Latest() {
           favourites(token).then(favourite => {
             favourite.map(item => item['favourite'] = true)
             setData(favourite)
+            setResult(favourite)
           })
         }
 
@@ -34,6 +37,19 @@ export default function Latest() {
 
   }
 
+  const handleSearchQuery = (query) => {
+    if(query == ''){
+      setData(result)
+    }
+    else{
+      search(query).then(data => {
+        setData(data.results)
+      })
+    }
+  }
+
+  const handleSearchDebouce = debounce(handleSearchQuery, 300);
+
 
   return (
     <div>
@@ -43,8 +59,8 @@ export default function Latest() {
       </Head>
 
       <main>
-        <Header />
-        <MoviesCard data={data}  update={handleclick}/>
+        <Header handleSearchQuery={handleSearchDebouce} />
+        <MoviesCard data={data}  update={handleclick} />
       </main>
     </div>
   )

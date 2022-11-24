@@ -2,8 +2,9 @@ import Head from 'next/head';
 import Header from '../../components/header'
 import MoviesCard from '../../components/movies'
 import { useState, useEffect } from 'react';
-import { latest, addfavourites , favourites } from '../../actions/movies'
+import { latest, addfavourites, favourites, search } from '../../actions/movies'
 import { isAuth,getCookie } from '../../actions/auth';
+import { debounce } from '../../utility/debounce';
 
 export default function Latest({results}) {
 
@@ -41,6 +42,19 @@ export default function Latest({results}) {
 
   }
 
+  const handleSearchQuery = (query) => {
+    if(query == ''){
+      setData(results)
+    }
+    else{
+      search(query).then(data => {
+        setData(data.results)
+      })
+    }
+  }
+
+  const handleSearchDebouce = debounce(handleSearchQuery, 300);
+
 
   return (
     <div>
@@ -51,8 +65,8 @@ export default function Latest({results}) {
       </Head>
 
       <main>
-        <Header />
-        <MoviesCard data={results}  update={handleclick}/>
+        <Header handleSearchQuery={handleSearchDebouce} />
+        <MoviesCard data={data}  update={handleclick} />
       </main>
     </div>
   )
